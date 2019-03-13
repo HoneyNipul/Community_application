@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <style type="text/css">
+   .padding{
+    margin-top:60px;
+   }
+   .logo{
+    margin-left:40px;
+   }
+   .login{
+    background-image: url("img/white.jpg");
+   }
+  </style>
+</head>
+<body>
+  <ion-view view-title="My Community" name="login-view" class="login" >
+  <ion-content class="padding">
+    <div ng-app="myApp" ng-controller="Logincontroller" >
+        
+          <img src="img\whiteLogo.png" class="logo" height="100" width="300">
+          <label class="item item-input">
+              <input type="text" placeholder="Username" ng-model="username">
+          </label>
+          <label class="item item-input">
+              <input type="password" placeholder="Password" ng-model="Password">
+          </label>
+       
+        <button class="button button-block button-calm" ng-click="submit()">Login</button>
+    </div>
+  </ion-content>
+</ion-view>
+</body>
+</html>

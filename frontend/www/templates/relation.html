@@ -1,0 +1,20 @@
+<ion-view title="Family members">
+
+    <ion-content has-header="true" padding="true">
+
+        <div class="list card">
+            <div class="item item-avatar">
+                <img src="{{current.photo}}"/>
+                <h2>{{current.first_name}} {{current.last_name}}</h2>
+                <p>{{current.occupation}}</p>
+            </div>
+            <a ng-repeat="relatedPersonDetails in relatedPersonDetails" class="item item-avatar item-icon-left" href="javascript:void(0);" ng-click="callDetails(relatedPersonDetails[1])">
+                <!-- <img src="pics/{{report.pic }}"/> -->
+                {{relatedPersonDetails[0]}} {{relatedPersonDetails[2]}}
+                <p>{{relatedPersonDetails[3]}}</p>
+            </a>
+        </div>
+
+    </ion-content>
+
+</ion-view>

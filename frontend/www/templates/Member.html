@@ -1,0 +1,174 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style type="text/css">
+  .padding{
+    margin-top: 16px;
+  }
+  </style>
+</head>
+<body>
+<ion-view view-title="Login" name="login-view">
+  <ion-content class="padding">
+    <div ng-app="myApp" ng-controller="MemberController">
+      <div ng-show="showMemberform">
+        <div class="list list-inset">
+            <label class="item item-input">
+                <span class="input-label">First_name</span>
+                <input type="text" name="First_name" ng-model="First_name" >
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Middle_name</span>
+                <input type="text" name="Middle_name" ng-model="Middle_name" >
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Last_name</span>
+                <input type="text" name="Last_name" ng-model="Last_name" required>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Username</span>
+                <input type="text" name="Username" ng-model="Username" required>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Password</span>
+                <input type="password" name="Password" ng-model="Password" required>
+            </label>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                   Gender
+                </div>
+                <select ng-model="gender">
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                  <option value="undefined">Undefined</option>
+                </select>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Date</span>
+                <input type="text" name="date" ng-model="Birthdate" ng-click="openDatePicker()">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Email</span>
+                <input type="email" name="Email" ng-model="Email" required>
+            </label>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                   Marital Status
+                </div>
+                <select ng-model="status">
+                  <option value="male">Married</option>
+                  <option value="female">Unmarried</option>
+                  <option value="undefined">widow</option>
+                  <option value="undefined">widower</option>
+                  <option value="undefined">divorce</option>
+                </select>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Occupation</span>
+                <input type="text" name="Occupation" ng-model="Occupation">
+            </label>    
+            <label class="item item-input">
+                <span class="input-label">Phone-number1</span>
+                <input type="number" name="Phone_number1" ng-model="Phonenumber1">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Phone-number2</span>
+                <input type="number" name="Phone_number2" ng-model="Phonenumber2">
+            </label>        
+           <label class="item item-input">
+                <span class="input-label">office-number</span>
+                <input type="number" name="office_number" ng-model="officenumber">
+            </label>
+            <label class="item item-input">
+              <input type = "file" file-model = "myFile" ng-model="myFile" id="inputFileToLoad"/>
+              <!--<button ng-click = "uploadFile()">upload me</button>-->
+            </label>
+            <label class="item item-input">
+              <span class="input-label">Address specification</span>
+              <button ng-click="newForm()">Add Address</button>
+            </label>
+            <label class="item item-input">
+              <input type="hidden" name="addressId" ng-model="addressId"/>
+            </label>
+            <div ng-show="isMemberExist">
+               <label class = "item item-input item-select">
+                  <div class = "input-label">
+                      relation
+                  </div> 
+               <label>Relation</label>
+               <select ng-model="relation">
+                  <option value="father">father</option>
+                  <option selected value="mother">Mother</option>
+                  <option>sister</option>
+                  <option>brother</option>
+                  <option>uncle</option>
+                  <option value="daughter">daughter</option>
+                  <option>aunty</option>
+                  <option>Nephew</option>
+                  <option>Niece</option>
+                </select>   
+            </div>
+
+        </div> 
+        <button class="button button-block button-calm" ng-click="submit()">Add Details</button>
+      </div>
+       <div ng-show="!showMemberform">
+          <h1 class="title">Address</h1>
+         <div class="list list-insert">
+         <form ng-submit="addressSubmit()">
+            <label class="item item-input">
+                <span class="input-label">Address-line1</span>
+                <input type="text" name="Address_line1" ng-model="Addressline1" required />
+            </label>
+             <label class="item item-input">
+                <span class="input-label">Address-line2</span>
+                <input type="text" name="Address_line2" ng-model="Addressline2" >
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Landmark</span>
+                <input type="text" name="Landmark" ng-model="Landmark" >
+            </label>
+             <label class="item item-input">
+                <span class="input-label">Area</span>
+                <input type="text" name="Area" ng-model="Area" required>
+            </label>
+             <label class="item item-input">
+                <span class="input-label">City</span>
+                <input type="text" name="City" ng-model="City" required>
+            </label>
+             <label class="item item-input">
+                <span class="input-label">State</span>
+                <input type="text" name="State" ng-model="State" required>
+            </label>
+             <label class="item item-input">
+                <span class="input-label">Country</span>
+                <input type="text" name="country" ng-model="country" required>
+            </label>
+             <label class="item item-input">
+                <span class="input-label">Postal-code</span>
+                <input type="number" name="Postal_code" ng-model="Postalcode" required>
+            </label>
+             <label class="item item-input">
+                <span class="input-label">Phone-number1</span>
+                <input type="number" name="Phone_number1" ng-model="Phonenumber1" required>
+            </label>
+             <label class="item item-input">
+                <span class="input-label">Phone-number2</span>
+                <input type="number" name="Phone_number2" ng-model="Phonenumber2">
+            </label>
+    
+          <div class="padding">
+              <input class="button" type="submit" id="submit" value="submit" />
+          </div>
+          </form>
+          </div>
+        </div>  
+    </div>
+  </ion-content>
+</ion-view>
+
+</body>
+</html>

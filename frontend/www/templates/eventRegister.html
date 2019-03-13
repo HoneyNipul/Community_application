@@ -1,0 +1,55 @@
+<ion-view title="Event Registery">
+  <ion-content>
+    <div class="list card">
+            <label class="item item-input">
+                <span class="input-label">Inviters Name</span>
+                <input type="text" name="name" ng-model="event_name" >
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Event Name</span>
+                <input type="text" name="event_name" ng-model="event_name" >
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Event Description</span>
+                <input type="text" name="event_description" ng-model="event_description" >
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Event Type</span>
+                   <ion-list>
+                      <ion-radio ng-model="choice" ng-value="'A'">Choose A</ion-radio>
+                      <ion-radio ng-model="choice" ng-value="'B'">Choose B</ion-radio>
+                    </ion-list>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Event Date</span>
+                <input type="text" name="date" ng-model="startDate" ng-click="openDatePicker()">
+            </label>
+             <label class="item item-input">
+                <span class="input-label">Event EndDate</span>
+                <input type="text" name="date" ng-model="endDate" ng-click="openDatePicker()">
+            </label>
+            <!-- <label class="item item-input">
+                <span class="input-label">Location</span>
+                <input type="text" name="location" ng-model="location" ng-click="location">
+            </label>
+             <label class="item item-input">
+                <span class="input-label">Add Invitee</span>
+                <input class="button" type="button" id="button" value="Search" ng-click="add()" />
+            </label>
+            <label class="item item-input">TYGGDDSWEFF  
+                <span class="input-label">Send Last Notification Before</span>
+                <input type="text" name="sendLastNotification" ng-model="sendLastNotification" ng-click="openDatePicker()">
+            </label>
+ -->
+            <label class="item item-input">
+               
+                <input class="button" type="button" id="button" value="Search" ng-click="submit()" />
+            </label>
+
+
+
+
+
+    </div>
+  </ion-content> 
+</ion-view>

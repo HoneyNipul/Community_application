@@ -1,0 +1,44 @@
+<!-- 
+<ion-view view-title="event calender">
+  <ion-content class="padding">
+    <div id="eventCalendar" ui-calendar="uiConfig.calendar" ng-model="eventSources" calendar="eventCalendar"></div>
+  </ion-content>
+</ion-view> -->
+
+
+
+    <ion-view view-title={{viewTitle}}>
+        <ion-nav-buttons side="right">
+            <button class="button" ng-disabled="isToday()" ng-click="today()">Today</button>
+            <button class="button" ng-click="changeMode('month')">M</button>
+            <button class="button" ng-click="changeMode('week')">W</button>
+            <button class="button" ng-click="changeMode('day')">D</button>
+            <button class="button" ng-click="loadEvents()">Load Events</button>
+        </ion-nav-buttons>
+
+        <ion-content scroll="false" class="main-content">
+        	<div class="col-xs-12">
+            <calendar ng-model="calendar.currentDate" calendar-mode="calendar.mode" event-source="calendar.eventSource"
+                      range-changed="reloadSource(startTime, endTime)"
+                      event-selected="onEventSelected(event)" title-changed="onViewTitleChanged(title,discription)"
+                      time-selected="onTimeSelected(selectedTime, events, disabled)"  monthview-event-detail-template-url="monthviewEventDetailTemplateUrl" step="30"></calendar> 
+            </div>          
+            <table class="table table-bordered table-striped table-fixed " ng-show="selectedDate.events">
+		        <tr ng-repeat="event in selectedDate.events" ng-click="eventSelected({event:event})">
+		            <td ng-if="!event.allDay" class="monthview-eventdetail-timecolumn">{{ event.startTime|date: 'HH:mm'}}
+		                -
+		                {{ event.endTime|date: 'HH:mm'}}
+		            </td>
+		            <td ng-if="event.allDay" class="monthview-eventdetail-timecolumn">All day</td>
+		            <td class="event-detail">{{event.title}}</td>
+		            <td class="event-detail">{{event.discription}}</td>
+                  
+		            
+		        </tr>
+		        <tr ng-if="!selectedDate.events">
+		            <td class="no-event-label" ng-bind="::noEventsLabel"></td>
+		        </tr>
+		    </table>           
+        </ion-content>        
+    </ion-view>
+

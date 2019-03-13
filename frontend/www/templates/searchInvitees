@@ -1,0 +1,23 @@
+<ion-view title="Search Invitees">
+
+    <div class="bar bar-subheader item-input-inset">
+        <label class="item-input-wrapper">
+            <i class="icon ion-ios7-search placeholder-icon"></i>
+            <input id="searchKey" type="search" placeholder="Search" ng-model="Name" autocorrect="off" >
+            <button class="button button-clear" ng-click="clearSearch()">X</button>
+        </label>
+        <input class="button" type="button" id="button" value="Search" ng-click="submit()" />
+    </div>
+
+    <ion-content class="has-header has-subheader">
+        <ion-list>
+            <ion-item ng-repeat="show in shows" type="item-text-wrap" class="item-avatar"
+                      href="#/app/Detail/{{show[0]}}">
+                <img src="{{show[14]}}"/>
+                {{show[1]}} {{show[2]}} {{show[3]}}
+                <p>{{show[9]}}</p>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+
+</ion-view>
